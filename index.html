@@ -1,0 +1,37 @@
+Create a complete interactive quiz website as ONE single file index.html (HTML + CSS + vanilla JavaScript, no frameworks, no build step, no external images) that works on GitHub Pages.
+
+TOPIC AND AUDIENCE
+Quiz for 8th grade students, school subject "Информатика", topic "Математикалық функциялар" (mathematical functions in spreadsheets). All interface text and all content must be in Kazakh (Cyrillic), with Kazakh letters ә, ғ, қ, ң, ө, ұ, ү, һ, і displayed correctly. Add <html lang="kk"> and <meta charset="utf-8">.
+
+DESIGN
+Take inspiration from the calm editorial style of arzamas.academy (do NOT copy its logo, texts or images): off-white or white background, black text, large serif headlines, thin dividing lines, generous white space, one restrained accent color, no heavy shadows, no gradients, no emojis. Use a Cyrillic-capable serif for headings (for example "PT Serif" or "Source Serif 4" from Google Fonts) and a clean sans-serif for body text, each with a safe fallback. Fully responsive, comfortable on a phone. Good contrast, visible focus states, keyboard accessible (answers are real buttons, Enter/Space and keys 1–4 select an answer).
+
+SCREENS
+1. Start screen: small label "Информатика · 8-сынып", big title "Математикалық функциялар", one short sentence "10 сұрақ. Дұрыс жауапты таңдаңыз.", button "Бастау".
+2. Question screen: progress text "Сұрақ 3 / 10" with a thin progress line, the question in large serif text, four answer buttons. After an answer is chosen: lock the buttons, mark the correct one in green and a wrong choice in red (also with an icon or text mark, not color alone), show a short explanation, and a button "Келесі сұрақ" (on the last question "Нәтижені көру").
+3. Result screen: "Нәтиже: X / 10", a short message depending on the score (9–10: "Тамаша!", 7–8: "Жақсы нәтиже", 5–6: "Орташа, қайталап көріңіз", 0–4: "Тақырыпты қайталап шығыңыз"), a list of the questions with the student's answer and the correct answer, and a button "Қайта бастау".
+
+RANDOMIZATION
+On every start/restart shuffle the order of the 10 questions and shuffle the order of the 4 answers inside each question (Fisher–Yates). Store the correct answer by value, not by position, so shuffling never breaks the check.
+
+QUESTIONS (data in a JS array; "a" is the correct answer)
+1. Q: "A1:A5 ұяшықтарындағы сандардың қосындысын қай функция есептейді?" Options: SUM, AVERAGE, MAX, COUNT. a: SUM. Explanation: "SUM функциясы көрсетілген диапазондағы сандарды қосады: =SUM(A1:A5)."
+2. Q: "Сандардың орташа мәнін есептейтін функцияны таңдаңыз." Options: AVERAGE, SUM, MIN, COUNT. a: AVERAGE. Explanation: "AVERAGE сандардың арифметикалық орташа мәнін табады."
+3. Q: "Диапазондағы ең үлкен санды табатын функция қайсы?" Options: MAX, MIN, SUM, ROUND. a: MAX. Explanation: "MAX функциясы ең үлкен мәнді қайтарады."
+4. Q: "Диапазондағы ең кіші санды табатын функция қайсы?" Options: MIN, MAX, AVERAGE, SQRT. a: MIN. Explanation: "MIN функциясы ең кіші мәнді қайтарады."
+5. Q: "B1 = 4, B2 = 6, B3 = 8 болса, =AVERAGE(B1:B3) формуласының нәтижесі қандай?" Options: 6, 4, 8, 18. a: 6. Explanation: "(4 + 6 + 8) / 3 = 6."
+6. Q: "=MAX(3; 9; 5) формуласының нәтижесі қандай?" Options: 9, 3, 5, 17. a: 9. Explanation: "Үш санның ішіндегі ең үлкені — 9."
+7. Q: "=ROUND(3,14159; 2) формуласының нәтижесі қандай?" Options: 3,14, 3,1, 3,2, 3. a: 3,14. Explanation: "ROUND саннан кейін көрсетілген таңбаға дейін дөңгелектейді: екі таңба — 3,14."
+8. Q: "Диапазондағы сандары бар ұяшықтардың санын қай функция санайды?" Options: COUNT, SUM, ROUND, SQRT. a: COUNT. Explanation: "COUNT функциясы тек сандар бар ұяшықтарды санайды."
+9. Q: "Электрондық кестеде формула қандай таңбадан басталады?" Options: =, #, @, $. a: =. Explanation: "Формула әрқашан «=» белгісінен басталады, мысалы =A1+B1."
+10. Q: "=SQRT(64) формуласының нәтижесі қандай?" Options: 8, 32, 6, 4. a: 8. Explanation: "SQRT санның квадрат түбірін табады: √64 = 8."
+
+TECHNICAL REQUIREMENTS
+- One file index.html, all CSS in <style>, all JS in <script>, no localStorage needed.
+- Clean, commented, readable code; questions kept in one array at the top of the script so the teacher can edit them easily.
+- Show the first question only after pressing "Бастау"; prevent changing an answer after it is chosen.
+- Add a small footer: "Информатика, 8-сынып".
+- No tracking, no ads, no external libraries.
+
+OUTPUT
+Return only the complete index.html code in one code block.
